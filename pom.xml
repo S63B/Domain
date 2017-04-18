@@ -6,7 +6,8 @@
 
     <groupId>com.S63B</groupId>
     <artifactId>domain</artifactId>
-    <version>1.3-SNAPSHOT</version>
+    <version>1.4-SNAPSHOT</version>
+
     <build>
         <plugins>
             <plugin>
