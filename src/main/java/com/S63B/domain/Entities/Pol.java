@@ -4,9 +4,9 @@ import javax.persistence.*;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Pol.getPolls", query = "SELECT pol FROM Pol AS pol WHERE tracker.id = :trackerID"),
-        @NamedQuery(name = "Pol.getPollsBetween", query = "SELECT pol FROM Pol AS pol WHERE tracker.id = :trackerID AND timestampMillis BETWEEN :startDate AND :endDate"),
-        @NamedQuery(name = "Pol.deletePolls", query = "DELETE FROM Pol p WHERE p.tracker.id = :trackerID")
+        @NamedQuery(name = "Pol.getPolls", query = "SELECT pol FROM Pol AS pol WHERE tracker.car.licensePlate.license = :licensePlate"),
+        @NamedQuery(name = "Pol.getPollsBetween", query = "SELECT pol FROM Pol AS pol WHERE tracker.car.licensePlate.license = :licensePlate AND timestampMillis BETWEEN :startDate AND :endDate"),
+        @NamedQuery(name = "Pol.deletePolls", query = "DELETE FROM Pol p WHERE p.tracker.car.licensePlate.license = :licensePlate")
 })
 public class Pol implements Comparable<Pol> {
     @Id

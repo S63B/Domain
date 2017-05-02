@@ -15,6 +15,9 @@ public class Tracker {
     private String serialNumber;
     private String country;
 
+    @OneToOne
+    private Car car;
+
     @OneToMany
     private List<Pol> polls;
 
@@ -22,9 +25,10 @@ public class Tracker {
         this.polls = new ArrayList<>();
     }
 
-    public Tracker(String serialNumber, String country) {
+    public Tracker(String serialNumber, String country, Car car) {
         this.serialNumber = serialNumber;
         this.country = country;
+        this.car = car;
         this.polls = new ArrayList<>();
     }
 
@@ -52,6 +56,10 @@ public class Tracker {
 
     public boolean removePol(Pol pol){
         return polls.remove(pol);
+    }
+
+    public Car getCar() {
+        return car;
     }
     //endregion
 }
