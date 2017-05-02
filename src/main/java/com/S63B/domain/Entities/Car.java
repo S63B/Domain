@@ -8,6 +8,9 @@ import javax.persistence.*;
  * Created by Nekkyou on 11-4-2017.
  */
 @Entity
+@NamedQueries({
+		@NamedQuery(name = "Car.getCar", query = "SELECT car FROM Car AS car WHERE licensePlate = :licensePlate")
+})
 public class Car {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
