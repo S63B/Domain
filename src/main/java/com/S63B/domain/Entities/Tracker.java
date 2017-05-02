@@ -25,10 +25,9 @@ public class Tracker {
         this.polls = new ArrayList<>();
     }
 
-    public Tracker(String serialNumber, String country, Car car) {
+    public Tracker(String serialNumber, String country) {
         this.serialNumber = serialNumber;
         this.country = country;
-        this.car = car;
         this.polls = new ArrayList<>();
     }
 
@@ -60,6 +59,10 @@ public class Tracker {
 
     public Car getCar() {
         return car;
+    }
+
+    public void setCar(Car car){
+        this.car = car;
     }
     //endregion
 }
