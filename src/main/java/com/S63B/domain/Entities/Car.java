@@ -22,14 +22,20 @@ public class Car {
 	private Enums.EnergyLabel energyLabel;
 	private boolean isStolen;
 
+	public Car(){
+
+    }
+
+    public Car(LicensePlate licensePlate, Enums.EnergyLabel energyLabel){
+	    this.licensePlate = licensePlate;
+	    this.energyLabel = energyLabel;
+	    this.isStolen = false;
+    }
+
 	//region Getters and Setters
 
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public LicensePlate getLicensePlate() {

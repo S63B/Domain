@@ -7,9 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-/**
- * Created by Nekkyou on 11-4-2017.
- */
 @Entity
 public class LicensePlate {
 	@Id
@@ -17,6 +14,15 @@ public class LicensePlate {
 	private int id;
 	private String license;
 	private DateTime expirationDate;
+
+	public LicensePlate(){
+
+	}
+
+	public LicensePlate(String license, DateTime expirationDate){
+		this.license = license;
+		this.expirationDate = expirationDate;
+	}
 
 	//region Getters and setters
 	public int getId() {
