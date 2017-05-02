@@ -1,26 +1,27 @@
-package com.S63B.domain;
+package com.S63B.domain.Entities;
 
 import javax.persistence.*;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Pol.getPolls", query = "SELECT pol FROM Pol AS pol WHERE licensePlate = :licensePlate"),
-        @NamedQuery(name = "Pol.getPollsBetween", query = "SELECT pol FROM Pol AS pol WHERE licensePlate = :licensePlate AND timestampMillis BETWEEN :startDate AND :endDate")
+        @NamedQuery(name = "Tracker.getPolls", query = "SELECT pol FROM Pol AS pol WHERE tracker.id = :trackerID"),
+        @NamedQuery(name = "Tracker.getPollsBetween", query = "SELECT pol FROM Pol AS pol WHERE tracker.id = :trackerID AND timestampMillis BETWEEN :startDate AND :endDate")
 })
 public class Pol implements Comparable<Pol> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
-    private String licensePlate;
+    @OneToOne
+    private Tracker tracker;
+
     private double lat;
     private double lng;
     private long timestampMillis;
 
     public Pol() {}
 
-    public Pol(String licensePlate, double lat, double lng, long timestampMillis) {
-        this.licensePlate = licensePlate;
+    public Pol(double lat, double lng, long timestampMillis) {
         this.lat = lat;
         this.lng = lng;
         this.timestampMillis = timestampMillis;
@@ -28,10 +29,6 @@ public class Pol implements Comparable<Pol> {
 
     public String getId() {
         return id;
-    }
-
-    public String getLicensePlate() {
-        return licensePlate;
     }
 
     public double getLat() {
@@ -44,6 +41,10 @@ public class Pol implements Comparable<Pol> {
 
     public long getTimestampMillis() {
         return timestampMillis;
+    }
+
+    public Tracker getTracker() {
+        return tracker;
     }
 
     @Override

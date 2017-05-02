@@ -1,5 +1,7 @@
 package com.S63B.domain;
 
+import com.S63B.domain.Entities.Pol;
+
 import java.util.ArrayList;
 import java.util.List;
 
