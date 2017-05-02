@@ -9,7 +9,7 @@ import javax.persistence.*;
  */
 @Entity
 @NamedQueries({
-		@NamedQuery(name = "Car.getCar", query = "SELECT car FROM Car AS car WHERE licensePlate = :licensePlate")
+		@NamedQuery(name = "Car.getCar", query = "SELECT car FROM Car AS car WHERE licensePlate.license = :licensePlate")
 })
 public class Car {
 	@Id
@@ -22,14 +22,18 @@ public class Car {
 	private Enums.EnergyLabel energyLabel;
 	private boolean isStolen;
 
+	@OneToOne
+    private Tracker tracker;
+
 	public Car(){
 
     }
 
-    public Car(LicensePlate licensePlate, Enums.EnergyLabel energyLabel){
+    public Car(LicensePlate licensePlate, Enums.EnergyLabel energyLabel, Tracker tracker){
 	    this.licensePlate = licensePlate;
 	    this.energyLabel = energyLabel;
 	    this.isStolen = false;
+	    this.tracker = tracker;
     }
 
 	//region Getters and Setters
@@ -62,5 +66,9 @@ public class Car {
 		this.energyLabel = energyLabel;
 	}
 
-	//endregion
+    public Tracker getTracker() {
+        return tracker;
+    }
+
+    //endregion
 }
