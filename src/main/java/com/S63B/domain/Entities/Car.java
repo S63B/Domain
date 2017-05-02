@@ -29,11 +29,10 @@ public class Car {
 
     }
 
-    public Car(LicensePlate licensePlate, Enums.EnergyLabel energyLabel, Tracker tracker){
+    public Car(LicensePlate licensePlate, Enums.EnergyLabel energyLabel){
 	    this.licensePlate = licensePlate;
 	    this.energyLabel = energyLabel;
 	    this.isStolen = false;
-	    this.tracker = tracker;
     }
 
 	//region Getters and Setters
@@ -68,6 +67,10 @@ public class Car {
 
     public Tracker getTracker() {
         return tracker;
+    }
+
+    public void setTracker(Tracker tracker){
+        this.tracker = tracker;
     }
 
     //endregion
