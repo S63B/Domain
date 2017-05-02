@@ -22,7 +22,8 @@ public class Pol implements Comparable<Pol> {
 
     public Pol() {}
 
-    public Pol(double lat, double lng, long timestampMillis) {
+    public Pol(Tracker tracker, double lat, double lng, long timestampMillis) {
+        this.tracker = tracker;
         this.lat = lat;
         this.lng = lng;
         this.timestampMillis = timestampMillis;
