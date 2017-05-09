@@ -8,6 +8,15 @@
     <description>Persistence unit for S63B</description>
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
+    <class>com.S63B.domain.Entities.Car</class>
+    <class>com.S63B.domain.Entities.Car_Ownership</class>
+    <class>com.S63B.domain.Entities.Invoice</class>
+    <class>com.S63B.domain.Entities.LicensePlate</class>
+    <class>com.S63B.domain.Entities.Owner</class>
+    <class>com.S63B.domain.Entities.Pol</class>
+    <class>com.S63B.domain.Entities.Rate</class>
+    <class>com.S63B.domain.Entities.Tracker</class>
+
     <properties>
         <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
         <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://192.168.24.125:5432/postgres" />
