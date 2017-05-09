@@ -17,14 +17,14 @@ public class Car_Ownership {
 	private Car car;
 
 	@OneToOne
-	private User user;
+	private Owner user;
 
 	private DateTime purchaseDate;
 
 	public Car_Ownership() {
 	}
 
-	public Car_Ownership(Car car, User user, DateTime purchaseDate) {
+	public Car_Ownership(Car car, Owner user, DateTime purchaseDate) {
 		this.car = car;
 		this.user = user;
 		this.purchaseDate = purchaseDate;
@@ -39,11 +39,11 @@ public class Car_Ownership {
 		this.car = car;
 	}
 
-	public User getUser() {
+	public Owner getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(Owner user) {
 		this.user = user;
 	}
 

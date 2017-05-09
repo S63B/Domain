@@ -14,7 +14,7 @@ public class Invoice {
     private int id;
 
     @OneToOne
-    private User user;
+    private Owner user;
 
     private DateTime date;
     private double totalPrice;
@@ -27,7 +27,7 @@ public class Invoice {
 
     }
 
-    public Invoice(int id, User user, DateTime date, double totalPrice, DateTime startDate, DateTime endDate, int paymentStatus, String countryOfOrigin) {
+    public Invoice(int id, Owner user, DateTime date, double totalPrice, DateTime startDate, DateTime endDate, int paymentStatus, String countryOfOrigin) {
         this.id = id;
         this.user = user;
         this.date = date;
@@ -48,11 +48,11 @@ public class Invoice {
         this.id = id;
     }
 
-    public User getUser() {
+    public Owner getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Owner user) {
         this.user = user;
     }
 

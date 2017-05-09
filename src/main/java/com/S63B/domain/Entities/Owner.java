@@ -8,7 +8,10 @@ import java.util.List;
  * Created by arjan on 28-3-2017.
  */
 @Entity
-public class User {
+@NamedQueries({
+        @NamedQuery(name = "Owner.getOwner", query = "SELECT owner FROM Owner AS owner WHERE owner.name = :name")
+})
+public class Owner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -25,12 +28,12 @@ public class User {
     @OneToMany
     private List<Car_Ownership> ownedCars;
 
-    public User() {
+    public Owner() {
 
     }
 
-    public User(int id, String name, String address, String residence,
-                boolean usesWebsite, String role, boolean canEditPrice)
+    public Owner(int id, String name, String address, String residence,
+                 boolean usesWebsite, String role, boolean canEditPrice)
     {
         this.id = id;
         this.name = name;
@@ -120,9 +123,9 @@ public class User {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof User)) return false;
+        if (!(o instanceof Owner)) return false;
 
-        User user = (User) o;
+        Owner user = (Owner) o;
 
         return false;
     }
