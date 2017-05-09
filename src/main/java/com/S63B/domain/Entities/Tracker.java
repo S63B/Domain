@@ -1,5 +1,7 @@
 package com.S63B.domain.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,9 +18,11 @@ public class Tracker {
     private String country;
 
     @OneToOne
+    @JsonBackReference
     private Car car;
 
     @OneToMany
+    @JsonBackReference
     private List<Pol> polls;
 
     public Tracker() {

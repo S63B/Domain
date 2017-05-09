@@ -1,5 +1,7 @@
 package com.S63B.domain.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,6 +16,7 @@ public class Pol implements Comparable<Pol> {
     private String id;
 
     @OneToOne
+    @JsonBackReference
     private Tracker tracker;
 
     private double lat;

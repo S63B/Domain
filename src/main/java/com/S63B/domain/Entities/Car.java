@@ -1,6 +1,7 @@
 package com.S63B.domain.Entities;
 
 import com.S63B.domain.Enums;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 
@@ -23,6 +24,7 @@ public class Car {
 	private boolean isStolen;
 
 	@OneToOne
+	@JsonBackReference
     private Tracker tracker;
 
 	public Car(){
