@@ -1,12 +1,9 @@
 package com.S63B.domain.Entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -18,7 +15,7 @@ import java.util.List;
         @NamedQuery(name = "Owner.getByUsername", query = "SELECT owner FROM Owner AS owner WHERE owner.username = :username"),
         @NamedQuery(name = "Owner.getById", query = "SELECT owner FROM Owner AS owner WHERE owner.id = :id")
 })
-public class Owner implements UserDetails {
+public class Owner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -27,7 +24,6 @@ public class Owner implements UserDetails {
     private String password;
     @JsonIgnore
     private String salt;
-    private boolean enabled;
     private String name;
     private String address;
     private String residence;
@@ -131,34 +127,6 @@ public class Owner implements UserDetails {
         this.ownedCars = ownedCars;
     }
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-
-        return authorities;
-    }
-
-    @Override
     public String getUsername() {
         return username;
     }
@@ -167,7 +135,6 @@ public class Owner implements UserDetails {
         this.username = username;
     }
 
-    @Override
     public String getPassword() {
         return password;
     }
