@@ -1,5 +1,7 @@
 package com.S63B.domain.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,12 +11,18 @@ import java.util.List;
  */
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Owner.getOwner", query = "SELECT owner FROM Owner AS owner WHERE owner.name = :name")
+        @NamedQuery(name = "Owner.getOwner", query = "SELECT owner FROM Owner AS owner WHERE owner.name = :name"),
+        @NamedQuery(name = "Owner.getByUsername", query = "SELECT owner FROM Owner AS owner WHERE owner.username = :username")
 })
 public class Owner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String username;
+    @JsonIgnore
+    private String password;
+    @JsonIgnore
+    private String salt;
     private String name;
     private String address;
     private String residence;
@@ -118,25 +126,29 @@ public class Owner {
         this.ownedCars = ownedCars;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
     //endregion
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Owner)) return false;
-
-        Owner user = (Owner) o;
-
-        return false;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = 31;
-        return result;
-    }
-
-    private int getBoolHashcode(boolean bool) {
-        return bool ? 1231 : 1237;
-    }
 }
