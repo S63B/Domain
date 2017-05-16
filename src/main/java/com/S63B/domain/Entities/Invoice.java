@@ -1,5 +1,6 @@
 package com.S63B.domain.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.joda.time.DateTime;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ public class Invoice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @JsonBackReference
     @OneToOne
     private Owner user;
 
