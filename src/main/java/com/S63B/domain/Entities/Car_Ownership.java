@@ -17,16 +17,16 @@ public class Car_Ownership {
 	private Car car;
 
 	@OneToOne
-	private Owner user;
+	private Owner owner;
 
 	private DateTime purchaseDate;
 
 	public Car_Ownership() {
 	}
 
-	public Car_Ownership(Car car, Owner user, DateTime purchaseDate) {
+	public Car_Ownership(Car car, Owner owner, DateTime purchaseDate) {
 		this.car = car;
-		this.user = user;
+		this.owner = owner;
 		this.purchaseDate = purchaseDate;
 	}
 
@@ -39,12 +39,12 @@ public class Car_Ownership {
 		this.car = car;
 	}
 
-	public Owner getUser() {
-		return user;
+	public Owner getOwner() {
+		return owner;
 	}
 
-	public void setUser(Owner user) {
-		this.user = user;
+	public void setOwner(Owner owner) {
+		this.owner = owner;
 	}
 
 	public DateTime getPurchaseDate() {

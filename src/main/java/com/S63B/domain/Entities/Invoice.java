@@ -16,7 +16,7 @@ public class Invoice {
 
     @JsonBackReference
     @OneToOne
-    private Owner user;
+    private Owner owner;
 
     private DateTime date;
     private double totalPrice;
@@ -29,9 +29,9 @@ public class Invoice {
 
     }
 
-    public Invoice(int id, Owner user, DateTime date, double totalPrice, DateTime startDate, DateTime endDate, int paymentStatus, String countryOfOrigin) {
+    public Invoice(int id, Owner owner, DateTime date, double totalPrice, DateTime startDate, DateTime endDate, int paymentStatus, String countryOfOrigin) {
         this.id = id;
-        this.user = user;
+        this.owner = owner;
         this.date = date;
         this.totalPrice = totalPrice;
         this.startDate = startDate;
@@ -50,12 +50,12 @@ public class Invoice {
         this.id = id;
     }
 
-    public Owner getUser() {
-        return user;
+    public Owner getOwner() {
+        return owner;
     }
 
-    public void setUser(Owner user) {
-        this.user = user;
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 
     public DateTime getDate() {

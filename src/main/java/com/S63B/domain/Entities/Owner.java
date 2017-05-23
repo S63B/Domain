@@ -51,7 +51,7 @@ public class Owner {
         this.usesWebsite = usesWebsite;
         this.role = role;
         this.canEditPrice = canEditPrice;
-        this.ownedCars = new ArrayList<Car_Ownership>();
+        this.ownedCars = new ArrayList<>();
     }
 
     //region Getters and Setters
