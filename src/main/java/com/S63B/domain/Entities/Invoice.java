@@ -29,7 +29,7 @@ public class Invoice {
 
     }
 
-    public Invoice(int id, Owner owner, DateTime date, double totalPrice, DateTime startDate, DateTime endDate, int paymentStatus, String countryOfOrigin) {
+    public Invoice(Owner owner, DateTime date, double totalPrice, DateTime startDate, DateTime endDate, int paymentStatus, String countryOfOrigin) {
         this.id = id;
         this.owner = owner;
         this.date = date;

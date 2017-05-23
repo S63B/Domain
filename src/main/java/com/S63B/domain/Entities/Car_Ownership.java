@@ -1,5 +1,6 @@
 package com.S63B.domain.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.joda.time.DateTime;
 
 import javax.persistence.*;
@@ -14,9 +15,11 @@ public class Car_Ownership {
 	private int id;
 
 	@OneToOne
+	@JsonBackReference
 	private Car car;
 
 	@OneToOne
+	@JsonBackReference
 	private Owner owner;
 
 	private DateTime purchaseDate;
