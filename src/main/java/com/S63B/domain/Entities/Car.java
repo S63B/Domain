@@ -24,7 +24,6 @@ public class Car {
 	private boolean isStolen;
 
 	@OneToOne
-	@JsonBackReference
     private Tracker tracker;
 
 	public Car(){

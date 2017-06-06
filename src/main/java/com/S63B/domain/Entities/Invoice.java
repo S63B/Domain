@@ -30,7 +30,6 @@ public class Invoice {
     }
 
     public Invoice(Owner owner, DateTime date, double totalPrice, DateTime startDate, DateTime endDate, int paymentStatus, String countryOfOrigin) {
-        this.id = id;
         this.owner = owner;
         this.date = date;
         this.totalPrice = totalPrice;
