@@ -1,5 +1,3 @@
-import com.S63B.domain.Entities.Car;
-import com.S63B.domain.Entities.LicensePlate;
 import junit.framework.TestCase;
 
 import javax.persistence.EntityManager;
@@ -16,16 +14,6 @@ public class DomainTest extends TestCase {
     }
 
     public void testPolController() throws Exception {
-        em.getTransaction().begin();
 
-        Object o = new LicensePlate();
-
-        em.persist(o);
-
-        o = new Car();
-
-        em.persist(o);
-
-        em.getTransaction().commit();
     }
 }
